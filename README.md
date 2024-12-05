@@ -36,34 +36,34 @@ The repository actively explores and implements cutting-edge AI solutions in hea
 
 ```
 Med-Physics/
-├── data/                      # Data directory
-│   ├── raw/                   # Original, immutable data
-│   ├── processed/             # Cleaned, transformed data
-│   └── external/              # Third-party data sources
-├── src/                       # Source code
-│   ├── data_processing/       # Data processing scripts
+├── data/                      
+│   ├── raw/                   
+│   ├── processed/             
+│   └── external/             
+├── src/                    
+│   ├── data_processing/   
 │   ├── models/               
-│   │   ├── traditional/       # Classical ML models
-│   │   └── deep_learning/     # Neural network implementations
-│   ├── visualization/         # Visualization tools
-│   └── explainability/        # Model interpretation tools
-├── notebooks/                 # Jupyter notebooks
-│   ├── exploratory/           # EDA notebooks
-│   ├── model_development/     # Model training notebooks
-│   └── results_analysis/      # Results analysis
-├── docs/                      # Documentation
-│   ├── data_documentation/    # Dataset descriptions
-│   ├── model_documentation/   # Model architectures and usage
-│   └── research_papers/       # Related research papers
-├── tests/                     # Unit tests
-├── configs/                   # Configuration files
-├── mlflow/                    # MLflow tracking
-│   ├── mlruns/                # MLflow experiments
-│   └── artifacts/             # MLflow artifacts
-└── results/                   # Output directory
-    ├── figures/               # Generated figures
-    ├── models/                # Saved models
-    └── reports/               # Analysis reports
+│   │   ├── traditional/      
+│   │   └── deep_learning/ 
+│   ├── visualization/        
+│   └── explainability/       
+├── notebooks/                 
+│   ├── exploratory/          
+│   ├── model_development/    
+│   └── results_analysis/    
+├── docs/                     
+│   ├── data_documentation/   
+│   ├── model_documentation/ 
+│   └── research_papers/       
+├── tests/                    
+├── configs/                   
+├── mlflow/                   
+│   ├── mlruns/               
+│   └── artifacts/             
+└── results/               
+    ├── figures/            
+    ├── models/               
+    └── reports/              
 ```
 
 ## 📊 Data Sources
