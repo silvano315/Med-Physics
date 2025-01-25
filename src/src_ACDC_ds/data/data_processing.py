@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import h5py
 import numpy as np
+from collections import defaultdict
 from scipy.ndimage import binary_dilation
 from pathlib import Path
 from typing import List, Dict
@@ -86,7 +87,6 @@ def load_h5_data(file_path: str):
 
         return data
     
-
 def prepare_image(image):
   """Prepare medical image for SAM."""
   # Normalize to [0, 255]
@@ -95,7 +95,6 @@ def prepare_image(image):
   # Convert to RGB by repeating the channel
   image_rgb = np.stack([image_norm] * 3, axis=-1)
   return image_rgb
-
 
 def get_points_from_scribble_only(scribble, n_points_per_class=10, dilation_size=3):
     """
@@ -134,3 +133,43 @@ def get_points_from_scribble_only(scribble, n_points_per_class=10, dilation_size
         point_labels = np.array([])
 
     return all_points, point_labels
+
+def analyze_slice_statistics(data_dir: Path) -> None:
+    """
+    Analyze statistics of individual slice files.
+
+    Args:
+        data_dir: Directory containing the h5 slice files
+    """
+    image_shapes = set()
+    label_distributions = defaultdict(int)
+    total_slices = 0
+
+    for h5_file in data_dir.glob("patient*_frame*_slice_*.h5"):
+        try:
+            with h5py.File(h5_file, 'r') as f:
+                total_slices += 1
+
+                img_shape = f['image'][()].shape
+                image_shapes.add(img_shape)
+
+                unique_labels = tuple(sorted(np.unique(f['label'][()])))
+                label_distributions[unique_labels] += 1
+
+                if total_slices % 100 == 0:
+                    print(f"Processed {total_slices} slices...")
+
+        except Exception as e:
+            print(f"Error processing {h5_file.name}: {str(e)}")
+
+    print("\nDataset Statistics:")
+    print("-" * 50)
+    print(f"Total number of slices analyzed: {total_slices}")
+
+    print("\nUnique image shapes found:")
+    for shape in sorted(image_shapes):
+        print(f"- {shape}")
+
+    print("\nLabel distributions found:")
+    for labels, count in sorted(label_distributions.items()):
+        print(f"- Classes {labels}: {count} slices ({count/total_slices*100:.2f}%)")

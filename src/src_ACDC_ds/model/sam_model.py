@@ -3,7 +3,7 @@ import torch
 import urllib.request
 import numpy as np
 from segment_anything import sam_model_registry
-from src.src_ACDC_ds.data.data_precessing import prepare_image
+from src_ACDC_ds.data.data_processing import prepare_image
 
 def setup_sam():
     """Initialize and load SAM model."""
