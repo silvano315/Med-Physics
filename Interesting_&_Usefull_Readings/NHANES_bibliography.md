@@ -87,6 +87,71 @@ Severe periodontitis).
     2. Negative Binomial Regression Models Showing the Associations Between Number of Teeth and Frailty
     3. Negative Binomial Regression Models Showing the Associations Between Periodontal Disease and Frailty Index
 
+## Periodontitis and low cognitive performance: A population-based study
+
+### Dataset Information
+- NHANES 2011-2014 database
+- 2086 participants ≥60 anni
+- Representative of 77.1 million US non-institutionalized adults
+
+### Variables of Interest
+#### Cognitive Performance Outcome
+- Cognitive tests:
+    1. CERAD-WL (Consortium to Establish a Registry for Alzheimer's diseas)
+    2. AFT (animal fluency test)
+    3. DSST (digit symbol substitution test)
+    4. Global cognition score (Standardized sum of the preceding)
+
+#### Explanatory Variables
+- Periodontal state (none/mild, moderate, severe according to criteria CDC/AAP)
+- Average PPD (probing pocket depth)
+- Average CAL (clinical attack level)
+
+#### Covariates
+1. Age
+2. Gender
+3. Smoking status
+4. Level of family poverty
+5. Education level
+6. Consumption of alcohol
+
+### Mediators
+- Diabetes
+- Hypertension
+- Cardiovascular/cerebrovascular disease
+- Systemic inflammation marker (counts white blood cells and platelets)
+
+### Research Focus
+Study the association between periodontitis and low cognitive performance in elderly adults ( 60 years) in a representative USA sample.
+
+### Methodologies
+#### Data Preprocessing
+- Excluding edentulous subjects
+- Excluded subjects without complete periodontal examination
+- Subjects who have not completed at least one cognitive test are excluded
+- Dichotomized cognitive performance using the unweighted lower quartile
+- Global cognition score calculation as the sum of the standardized z-scores of CERAD-WL, AFT and DSST
+
+#### Statistical Analysis
+- Continous variables expressed with mean and std, categorical variables expressed with proportions and standard error
+- Simple and Multiple Regression to assess association between periodontitis and low cognitive performance
+- Analysis adjusted for confounding a priori
+- Logistic Regression for mediators analysis to study the role of each potential mediator
+- Software: STATA BE v17.1
+
+#### Machine Learning Approaches 
+- no machine learning integration was performed
+
+### Results and Findings
+#### Key Outcomes
+- Moderate and severe periodontitis significantly associate low DSST performance
+- Stronger associations for the women
+- Average CAL associated with low performance in global cognition, AFT and DSST
+
+#### Visualizations
+- 4 detailed tables with OR, IC95% and p-value
+- 1 figure with cognitive test distributions per each periodontal state
+
 ## Paper Title
 
 ### Dataset Information
@@ -134,10 +199,13 @@ Detailed description of research questions and hypotheses.
 ```
 [1] Faisal F. Hakeem MSc a, b, *, Eduardo Bernabé PhD a, Wael Sabbah PhD a. (2020). Association Between Oral Health and Frailty Among American Older Adults. JAMDA. https://doi.org/10.1016/j.jamda.2020.07.023
 ```
+```
+[2] Crystal Marruganti, Giacomo Baima, Mario Aimetti, Simone Grandini, Mariano Sanz, Mario Romandini (2023). Periodontitis and low cognitive performance: A population-based study. J Clin Periodontol. https://doi.org/10.1111/jcpe.13779
+```
 
 --------------------------------------
 
 ## Notes
-- Last updated: [27/01/2025]
+- Last updated: [30/01/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [first paper added]
+- Project Status: [second paper added]
