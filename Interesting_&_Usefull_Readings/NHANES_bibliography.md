@@ -8,8 +8,6 @@
 - [Methodologies](#methodologies)
 - [Tools and Technologies](#tools-and-technologies)
 - [Bibliography](#bibliography)
-- [Results and Findings](#results-and-findings)
-- [Future Work](#future-work)
 
 ## Overview
 This research project leverages the National Health and Nutrition Examination Survey (NHANES) dataset to investigate the relationships between cardiovascular biomarkers, frailty indicators, and neurological markers in the US population. The study aims to comprehensively analyze these health parameters by utilizing various statistical and analytical techniques.
@@ -152,6 +150,93 @@ Study the association between periodontitis and low cognitive performance in eld
 - 4 detailed tables with OR, IC95% and p-value
 - 1 figure with cognitive test distributions per each periodontal state
 
+## A systematic comparison of machine learning algorithms to develop and validate prediction model to predict heart failure risk in middle-aged and elderly patients with periodontitis (NHANES 2009 to 2014)
+
+### Dataset Information
+- NHANES 2009-2014
+- Total 2876 participants with periodontitis
+- Training set: 1980 subjects (2009-2012)
+- Validation set: 896 subjects (2013-2014)
+
+### Variables of Interest
+#### Outcome
+- Heart failure risk in middle-aged and elderly patients with periodontitis. Binary class.
+
+#### Independent Variables
+Key predictors identified: 
+- Age
+- Race
+- Myocardial infarction status
+- Diabetes mellitus status
+
+#### Covariates
+- Demographics: gender, education, marital status
+- Clinical: BMI, waist circumference, hypertension, CHD
+- Lifestyle: smoking status, alcohol consumption
+- Socioeconomic: poverty-to-income ratio
+- Health behaviors: sleep time, physical activity, sedentary time
+
+### Research Focus
+The goal of this study was to develop and validate a prediction model based on machine learning algorithms for the risk of heart failure in middle-aged and elderly participants with periodontitis.
+
+### Methodologies
+#### Data Preprocessing
+- Patients with age > 40 years
+- Patients with missing data were excluded
+- Categorization of variables:
+    - smoking status
+    - alcohol consumption
+    - Diabetes
+
+#### Statistical Analysis
+-  Description and logistic regression analysis to achieve nationally representative values
+    - The t test was used to compare continuous variables between the 2 groups.
+    - The chi-square test or Fisher exact test was used to determine the differences between groups when comparing categorical variables between the 2 groups.
+    - Odds ratio (OR) and 95% confidence intervals (CI) were utilized as effect estimates and P < .05 was considered statistically significant. 
+- Univariate and multivariate logistic regression analysis to identify the independent risk factors for heart failure 
+- R software (version 4.3.0)
+
+#### Machine Learning Approaches 
+Machine Learning Models Compared:
+1. Logistic regression
+2. K-nearest neighbor
+3. Support vector machine
+4. Random forest
+5. Gradient boosting machine
+6. Multilayer perceptron
+
+Validation Approach:
+- 10-fold cross-validation on training set
+- External validation on 2013-2014 dataset
+- Performance evaluated using ROC curves and AUC
+
+### Results and Findings
+#### Key Outcomes
+1. The independent predictors of the risk of heart failure in participants with periodontitis were age, race, myocardial infarction, and diabetes mellitus status.
+2. Training set (10-fold cross-validation):
+    - K-nearest neighbor: 0.936 (best performing)
+    - GBM: 0.927
+    - Random forest: 0.889
+    - SVM: 0.859
+    - Logistic regression: 0.848
+    - MLP: 0.666
+3. External validation:
+    - K-nearest neighbor: 0.949 (best performing)
+    - Random forest: 0.933
+    - Logistic regression: 0.854
+    - GBM: 0.855
+    - MLP: 0.74
+    - SVM: 0.647
+4. Variable importance ranked in descending order:
+    - Myocardial infarction
+    - Age
+    - Diabetes
+    - Race
+
+#### Visualizations
+- Receiver operating characteristic curve analysis is used in the external validation set to check the performance of each model.
+- Tables for demographic information, univariate and multivariate logistic regression analysis
+
 ## Paper Title
 
 ### Dataset Information
@@ -203,9 +288,13 @@ Detailed description of research questions and hypotheses.
 [2] Crystal Marruganti, Giacomo Baima, Mario Aimetti, Simone Grandini, Mariano Sanz, Mario Romandini (2023). Periodontitis and low cognitive performance: A population-based study. J Clin Periodontol. https://doi.org/10.1111/jcpe.13779
 ```
 
+```
+[3] Yicheng Wang, Yuan Xiao, Yan Zhang (2023) A systematic comparison of machine learning algorithms to develop and validate prediction model to predict heart failure risk in middle-aged and elderly patients with periodontitis (NHANES 2009 to 2014). Medicine (Baltimore). 10.1097/MD.0000000000034878
+```
+
 --------------------------------------
 
 ## Notes
-- Last updated: [30/01/2025]
+- Last updated: [06/02/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [second paper added]
+- Project Status: [third paper added]
