@@ -237,6 +237,51 @@ Validation Approach:
 - Receiver operating characteristic curve analysis is used in the external validation set to check the performance of each model.
 - Tables for demographic information, univariate and multivariate logistic regression analysis
 
+
+## Prognostic significance of subjective oral dysfunction on the all-­cause mortality
+
+### Dataset Information
+- List of specific NHANES cycles analyzed
+- Sample size and demographic information
+- Data collection periods
+
+### Variables of Interest
+#### Frailty Outcome
+- Frailty indices used
+
+#### Variables used
+
+### Research Focus
+Detailed description of research questions and hypotheses.
+
+### Methodologies
+#### Data Preprocessing
+- Data cleaning procedures
+- Missing data handling
+- Outlier detection and treatment
+
+#### Statistical Analysis
+- Statistical methods employed
+- Software packages and versions
+- Analysis pipelines
+
+#### Machine Learning Approaches 
+- Algorithms used
+- Feature selection methods
+- Model validation techniques
+
+### Results and Findings
+#### Key Outcomes
+- Major findings
+- Statistical significance
+- Clinical relevance
+
+#### Visualizations
+- Key figures and plots
+- Data interpretation
+- Meaningful patterns
+
+
 ## Paper Title
 
 ### Dataset Information
@@ -287,14 +332,16 @@ Detailed description of research questions and hypotheses.
 ```
 [2] Crystal Marruganti, Giacomo Baima, Mario Aimetti, Simone Grandini, Mariano Sanz, Mario Romandini (2023). Periodontitis and low cognitive performance: A population-based study. J Clin Periodontol. https://doi.org/10.1111/jcpe.13779
 ```
-
 ```
 [3] Yicheng Wang, Yuan Xiao, Yan Zhang (2023) A systematic comparison of machine learning algorithms to develop and validate prediction model to predict heart failure risk in middle-aged and elderly patients with periodontitis (NHANES 2009 to 2014). Medicine (Baltimore). 10.1097/MD.0000000000034878
+```
+```
+[4] Zhe-­Yu Yang, Wei-­ Liang Chen (2021) Prognostic significance of subjective oral dysfunction on the all-­cause mortality. Wiley, J Oral Rehabilitation. 10.1111/joor.13281
 ```
 
 --------------------------------------
 
 ## Notes
-- Last updated: [06/02/2025]
+- Last updated: [10/02/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [third paper added]
+- Project Status: [fourth paper added]
