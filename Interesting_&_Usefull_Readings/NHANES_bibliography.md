@@ -241,45 +241,93 @@ Validation Approach:
 ## Prognostic significance of subjective oral dysfunction on the all-­cause mortality
 
 ### Dataset Information
-- List of specific NHANES cycles analyzed
-- Sample size and demographic information
-- Data collection periods
+- NHANES database 1999-2002
+- Total of 7827 participants who completed oral functions data
+- Follow-up period: from baseline to death or December 31, 2006
 
 ### Variables of Interest
-#### Frailty Outcome
-- Frailty indices used
+#### Primary Outcome
+- All-cause mortality
 
-#### Variables used
+#### Subjective Oral Dysfunction Components
+Three key components assessed via self-reported questionnaire:
+- Limited eating ability
+- Dry mouth
+- Difficult swallowing
+
+#### Covariables
+- Socio-demographic: age, sex, race, smoking history
+- Medical comorbidities
+- Recreational activity
+- Biochemistry profiles:
+    - Creatinine
+    - Alanine aminotransferase
+    - Serum fasting glucose
+    - Total cholesterol
+    - Total calcium
+- Muscle measurements:
+    - Muscle strength (quadriceps)
+    - Appendicular skeletal muscle mass
 
 ### Research Focus
-Detailed description of research questions and hypotheses.
+To examine the association between subjective oral dysfunction and all-cause mortality in the US population. 
+
+Honorable mention for this paper for a well-done introduction: the different indices to evaluate frailty are well exposed and it is mentioned the longitudinal study in Japan that defined oral frailty as containing 3 or more of 6 characteristics (included the number of natural teeth, tongue pressure, articulatory skill, chewing ability and perceived eating and swallowing difficulties). 
+
+"Each frailty scale focused on different domains such as biological, physical, cognitive and deficit accumulation."
+
+"Oral hypofunction was defined by the Japanese Society of Gerodontology (JSG) including seven components: oral dryness, poor oral hygiene, decreased occlusal force, decreased tongue pressure, reduced tongue-­lips motor function, decreased chewing and swallowing function."
 
 ### Methodologies
 #### Data Preprocessing
-- Data cleaning procedures
-- Missing data handling
-- Outlier detection and treatment
+- They excluded individuals who lacked data for covariables
+- It appears to be a complete case analysis where they simply excluded participants with missing data on key variables.
+- They classified study population into 4 groups:
+    - group 1 (without any components of subjective oral dysfunction), 
+    - group 2 (with one component of subjective oral dysfunction), 
+    - group 3 (with two components of subjective oral dysfunction), 
+    - group 4 (with 3 components of subjective oral dysfunction).
+
+#### Study Design
+- Cross-sectional observational study
+
+#### Assessment Methods
+- Subjective oral dysfunction assessment:
+    1. Limited eating ability: "always, very often and often" responses
+    2. Dry mouth: "yes" responses
+    3. Difficult swallowing: "yes" responses
+- Muscle strength: Isokinetic strength testing of right quadriceps
+- Muscle mass: Dual-energy X-ray absorptiometry (DEXA)
 
 #### Statistical Analysis
-- Statistical methods employed
-- Software packages and versions
-- Analysis pipelines
+- SPSS version 18
+- One-way ANOVA and chi-square test were applied for analysing socio-­demographic characteristics, laboratory variables and medical comorbidities. 
+- Kaplan-Meier survival curves
+- Cox proportional hazard models to assess the relationship between subjective oral dysfunction and all-­ cause mortality 
+- Three covariate-adjusted models:
+    1. Model 1: unadjusted
+    2. Model 2: adjusted for basic variables
+    3. Model 3: fully adjusted model
 
 #### Machine Learning Approaches 
-- Algorithms used
-- Feature selection methods
-- Model validation techniques
+- No Machine Learning algorithms implemented in this research.
 
 ### Results and Findings
 #### Key Outcomes
-- Major findings
-- Statistical significance
-- Clinical relevance
+- Significant relationship between subjective oral dysfunction and all-cause mortality in fully adjusted model
+- Dose-dependent effect: more components of dysfunction associated with worse mortality risk
+- HRs in fully adjusted model:
+    - Group 2 (one component): 1.269
+    - Group 3 (two components): 1.649
+    - Group 4 (three components): 3.185
+- Limited eating ability inversely associated with muscle strength
 
 #### Visualizations
-- Key figures and plots
-- Data interpretation
-- Meaningful patterns
+- Three Kaplan-Meier curves showing cumulative survival classified by each component of subjective oral dysfunction
+- Tables showing:
+    - Population characteristics
+    - Hazard ratios of all-cause mortality
+    - Associations between muscle strength/mass and oral dysfunction components
 
 
 ## Paper Title
@@ -342,6 +390,6 @@ Detailed description of research questions and hypotheses.
 --------------------------------------
 
 ## Notes
-- Last updated: [10/02/2025]
+- Last updated: [11/02/2025]
 - Contact: [silvano.quarto@gmail.com]
 - Project Status: [fourth paper added]
