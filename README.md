@@ -70,76 +70,72 @@ Med-Physics/
 
 The repository works with various types of medical data:
 
-- **EEG Data**: Brain electrical activity measurements
-- **Neuroimaging**: MRI, fMRI, CT scans
-- **Cardiometabolic Biomarkers**: Blood markers, vital signs
-- **Neurodegenerative Disease Markers**: Alzheimer's, Parkinson's indicators
+- **Health Examination Data**: Periodontal measurements, Clinical assessments
+- **Questionnaire Data**: Demographics, Health behaviors, Medical conditions
+- **Neuroimaging**: MRI
 
 Primary data sources include:
-- PhysioNet
-- ADNI (Alzheimer's Disease Neuroimaging Initiative)
-- OASIS (Open Access Series of Imaging Studies)
+- NHANES (National Health and Nutrition Examination Survey)
+- ACDC (Automated Cardiac Diagnosis Challenge) dataset
 
-## 🛠️ Technologies
 
-> Note: This is a growing list that will be updated as new tools and frameworks are integrated into the project.
+## 🛠️ project boards
 
-### Current Stack:
-- **Programming**: Python 3.8+
-- **Data Processing**: 
-  - Pandas, NumPy
-  - SciPy
-  - Nibabel (for neuroimaging)
-- **Machine Learning & AI**:
-  - PyTorch
-  - Transformers (Hugging Face)
-  - TensorFlow/Keras
-- **Healthcare AI Tools**:
-  - [To be expanded with tested tools]
-  - [Will include successful implementations]
-- **Visualization**:
-  - Matplotlib
-  - Seaborn
-  - Plotly
-  - PyGWalker and Streamlit
-- **Experiment Tracking**:
-  - MLflow
-- **Development Tools**:
-  - Git
-  - Docker
-  - pytest
+### Periodontal Status and Functional Domains Analysis
+This [project](notebooks/NHANES_analysis.ipynb) investigates the relationship between periodontal disease severity and various functional domains using NHANES data. The analysis focuses on:
+- Assessment of periodontal status (None/Mild, Moderate, Severe) using CDC/AAP criteria
+- Evaluation of five key functional domains:
+  - Locomotion (standing difficulty)
+  - Cognitive function (concentration)
+  - Vitality (weight changes and appetite)
+  - Psychological status (depression and interest)
+  - Sensory capabilities (hearing and vision)
 
-## 📈 Workflow & Development Process
+The analysis pipeline includes:
+- Data preprocessing and feature engineering
+- Descriptive statistics generation using TableOne
+- Univariate logistic regression analysis
+- Results visualization and reporting
 
-This is an iterative development process that includes:
+Key tools:
+- R version 4.4.2
+- Packages: tableone, dplyr, flextable
+- Statistical methods: logistic regression with odds ratios and 95% CI
 
-1. **Tool & Model Exploration**:
-   - Research current SOTA models and tools
-   - Initial testing in isolated notebooks
-   - Performance evaluation and documentation
-   - Integration decision based on results
+Results are presented in publication-ready tables showing associations between functional domains and periodontal disease severity, stratified by gender and overall population.
 
-2. **Data Processing**:
-   - Data collection and validation
-   - Preprocessing pipeline development
-   - Feature engineering
-   - Quality assurance protocols
+### SAM Zero-Shot Segmentation from Scribbles and SegFormer Fine-tuning Pipeline
+In the first part of the [project](notebooks/cardiac_MRI_segmentation_with_SAM.ipynb), I used SAM's zero-shot capabilities for cardiac segmentation:
+- Utilization of pre-trained SAM model without fine-tuning
+- Scribble-based prompt generation from existing annotations
+- Zero-shot generalization to cardiac structures
 
-3. **Model Development & Testing**:
-   - Experiment tracking with MLflow
-   - Model training and validation
-   - Fine-tuning experiments
-   - Performance evaluation
-   - Integration with existing tools
+In the second part, I implemented a complete pipeline for SegFormer fine-tuning:
+- Base architecture: Pre-trained SegFormer-B0
+- Supervised training on cardiac slices
+The pipeline includes:
+- Custom dataset with augmentation
+- Combined loss function (Dice + Cross Entropy)
+- Detailed logging with Weights & Biases
+- Checkpoint management and early stopping
 
-4. **Analysis and Documentation**:
-   - Result visualization
-   - Model explainability
-   - Performance metrics
-   - Clinical relevance assessment
-   - Documentation of learnings and best practices
+Frameworks and libraries:
+- PyTorch
+- HuggingFace Transformers
+- Albumentations for data augmentation
 
-> Each component of the workflow will be expanded and refined as the project evolves. Successful implementations will be documented and integrated into the main codebase.
+The code is structured with:
+- Modular component testing you can see in the [src folder](src/src_ACDC_ds/)
+- Incremental implementation
+
+This second part has to be fully tested!
+
+### Other Medical Physics projects 
+
+During my last years, I worked on other medical physics projects such as:
+1. "An eXplainability Artificial Intelligence approach to brain connectivity in Alzheimer's disease" published on [Frontiers](https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2023.1238065/full)
+2. Deep Learning for Pneumonia Detection from Chest X-rays, you can see details [here](https://github.com/Silvano315/Pneumonia_Detection)
+
 
 ## 🚀 Getting Started
 
