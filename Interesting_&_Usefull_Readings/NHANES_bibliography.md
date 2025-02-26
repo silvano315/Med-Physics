@@ -330,6 +330,165 @@ Honorable mention for this paper for a well-done introduction: the different ind
     - Associations between muscle strength/mass and oral dysfunction components
 
 
+## Machine learning approaches for predicting frailty base on multimorbidities in US adults using NHANES data (1999–2018)
+
+### Dataset Information
+- NHANES data from 1999-2018 (10 survey cycles)
+- Total sample of 46,187 adults (representative of 185,602,706 US adults)
+- Initial sample of 116,876 participants, with 73,990 eliminated due to incomplete data
+- Weighted mean age: 47.16 years
+- Gender distribution: 21,613 (51.2%) women
+
+### Variables of Interest
+
+#### Frailty Outcome
+- Modified 36-item deficit accumulation frailty index:
+    1. Count the number of deficits present in each individual
+    2. Divide this number by the total of possible deficits (36)
+    3. The result is a score ranging from 0 to 1, where higher values indicate greater fragility.
+- Frailty classification:
+  - Non-Frailty (frailty index ≤ 0.10)
+  - Pre-Frailty (frailty index > 0.10 to < 0.25)
+  - Frailty (frailty index ≥ 0.25)
+
+#### Variables used
+- Demographics: Age, Sex, Ethnicity, Educational Level, Marital Status
+- Chronic conditions (defined by laboratory indicators):
+  - Chronic Kidney Disease (CKD)
+  - Diabetes Mellitus (DM)
+  - Hyperlipidemia
+  - Nonalcoholic Fatty Liver Disease (NAFLD)
+  - Hypertension
+  - Anemia
+- Self-reported conditions:
+  - Chronic Obstructive Pulmonary Disease (COPD)
+  - Stroke
+  - Coronary Heart Disease (CHD)
+  - Asthma
+  - Congestive Heart Failure (CHF)
+  - Parkinson's Disease
+  - Arthritis
+  - Epilepsy
+
+### Research Focus
+The study aimed to:
+1. Analyse the individual impact of diseases on frailty in the presence of multimorbidities
+2. Construct a predictive model for the early identification of frailty using machine learning approaches
+3. Explore the non-linear relationship between age and frailty
+4. Identify critical factors influencing the progression from non-frailty to pre-frailty and from pre-frailty to frailty
+
+### Methodologies
+
+#### Data Preprocessing
+- Elimination of participants without complete data
+- Frailty assessment using a modified 36-item deficit accumulation frailty index
+- Disease identification through both laboratory indicators and self-reported medical history
+- Data analyzed following analytical guidelines and recommended survey weights for NHANES data
+
+#### Statistical Analysis
+- Weighted means with standard error (SE) for continuous variables
+- Unweighted frequencies with weighted percentages for categorical variables
+- t-test for continuous variables
+- Rao-Scott Chi-Square test for categorical variables
+- Restricted cubic spline (RCS) to explore non-linear association between age and frailty
+- Survey-weighted multivariable logistic regressions adjusted for potential confounders
+- Statistical significance defined as P-value < 0.05
+- All analyses performed using R (version 4.3.2)
+
+#### Machine Learning Approaches
+- Feature selection using three algorithms:
+  1. Joint Mutual Information Maximisation (JMIM)
+  2. Lasso regression (LR)
+  3. Random forest (RF)
+- Selection of features appearing twice or more in the top 10 of the three screening methods as inclusion features. Feature candidate those that appeared only once.
+- Construction of 8 different feature combination models evaluated by AUC
+- Nested cross-validation approach:
+  - Inner loop: 10-fold cross-validation for hyperparameter optimization
+  - Outer loop: 5-fold cross-validation for model validation
+- Six machine learning algorithms tested:
+  1. Decision tree
+  2. Logistic Regression (LR)
+  3. k-Nearest Neighbor (KNN)
+  4. Random Forest (RF)
+  5. Recursive Partitioning and Regression Trees (RPART)
+  6. eXtreme Gradient Boosting (XGBoost)
+- Model performance evaluated using:
+  - Receiver operating characteristic curve (ROC)
+  - Precision-recall curves (PRC)
+  - Areas under the ROC (AUC)
+  - Area under the PRC (AU-PRC)
+  - Calibration curve analysis
+  - Decision Curve Analysis (DCA)
+
+### Results and Findings
+
+#### Key Outcomes
+1. **Age-Frailty Relationship**:
+   - Non-linear association between age and frailty
+   - Critical turning point at 49 years old
+   - Before 49 years: age appears to function as a protective factor against frailty
+   - After 49 years: increased susceptibility to frailty
+
+2. **Key Impacting Variables on Frailty**:
+   **Primary tier** (highest impact):
+   - Anemia
+   - Arthritis
+   - Diabetes Mellitus
+   - Coronary Heart Disease
+   - Hypertension
+   - Congestive Heart Failure
+   - Stroke
+   
+   **Secondary tier** (moderate impact):
+   - Parkinson's disease
+   - COPD
+   - Asthma
+   
+   **Tertiary tier** (minimal impact):
+   - Hyperlipidemia
+   - Chronic Kidney Disease
+   - Non-Alcoholic Fatty Liver Disease
+
+3. **Different Disease Impact by Frailty Stage**:
+   - In transition from non-frailty to pre-frailty: chronic conditions had greater impact
+   - In transition from pre-frailty to frailty: acute conditions or complications (CHF, stroke, CHD) had greater impact
+
+4. **Machine Learning Model Performance**:
+   - XGBoost model showed highest performance (AUC = 0.8828 and AU-PRC = 0.624)
+   - Final set of 13 predictive variables: Age, DM, CKD, COPD, Stroke, Hypertension, CHF, CHD, Arthritis, Anemia, Ethnicity, Educational Level, and Sex
+   - Approximately 31,900 models built and evaluated during the optimization process
+
+#### Visualizations
+- **Figure 1**: Prevalence of Frailty in sociodemography showing:
+  - Mean frailty index by age and sex
+  - Frailty prevalence by age and sex
+  - The non-linear association between age and frailty
+  - Frailty prevalence by educational level, marital status, and ethnicity
+
+- **Figure 2**: Adjusted logistic analysis showing the association between frailty and multimorbidity:
+  - Part A: Adjusted multimorbidity logistic regression of non-Frailty versus pre-Frailty
+  - Part B: Adjusted multimorbidity logistic regression of pre-Frailty versus Frailty
+
+- **Figure 3**: Feature selection process:
+  - Feature ranking via Random Forest, JMIM, and lasso regression
+  - AUC values of different feature combination models
+
+- **Figure 4**: Performance evaluation of models:
+  - ROC comparison of 6 machine learning algorithms
+  - AU-PRC comparison of 6 algorithms
+  - Calibration curve for the XGBoost model
+  - Decision curve analysis of XGBoost model
+
+### Conclusions
+1. Age 49 represents a critical threshold where physiological reserves are sufficient to resist external stressors; beyond this age, the cumulative effects of aging and external challenges overpower the body's innate resilience.
+
+2. Chronic diseases (e.g., anemia, arthritis, diabetes) are trigger factors of frailty, while acute diseases or exacerbations (e.g., CHF, stroke) are contributing factors that accelerate the body's decline.
+
+3. The XGBoost frailty prediction model, with its high performance (AUC = 0.8828), simplicity, and clinical value, holds potential for practical implementation in healthcare settings.
+
+4. The model's accuracy, coupled with low data collection costs and ease of use, makes it highly applicable in clinical and community settings for early intervention and improved patient outcomes.
+
+
 ## Paper Title
 
 ### Dataset Information
@@ -386,10 +545,13 @@ Detailed description of research questions and hypotheses.
 ```
 [4] Zhe-­Yu Yang, Wei-­ Liang Chen (2021) Prognostic significance of subjective oral dysfunction on the all-­cause mortality. Wiley, J Oral Rehabilitation. 10.1111/joor.13281
 ```
+```
+[4] Teng Li, Xueke Li, Haoran XU, Yanyan Wang (2024) Machine learning approaches for predicting frailty base on multimorbidities in US adults using NHANES data (1999–2018). Computer Methods and Programs in Biomedicine. https://doi.org/10.1016/j.cmpbup.2024.100164
+```
 
 --------------------------------------
 
 ## Notes
-- Last updated: [11/02/2025]
+- Last updated: [26/02/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [fourth paper added]
+- Project Status: [fifth paper added]
