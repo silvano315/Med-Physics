@@ -489,6 +489,87 @@ The study aimed to:
 4. The model's accuracy, coupled with low data collection costs and ease of use, makes it highly applicable in clinical and community settings for early intervention and improved patient outcomes.
 
 
+## Association between frailty index and cognitive dysfunction in older adults: insights from the 2011–2014 NHANES data
+
+### Dataset Information
+- NHANES data from 2011-2014 (2 survey cycles)
+- Total sample of 2,574 adults aged 60 years and older
+
+### Variables of Interest
+
+#### Frailty Outcome
+- Frailty index based on 70 health deficiencies across physical, functional, psychological, and social health variables
+- Calculation formula: frailty index = total number of deficits present/total number of deficits measured
+- Classification thresholds:
+  - Frailty (frailty index ≥ 0.25)
+  - Pre-frailty (frailty index: 0.12-0.25)
+  - No frailty (frailty index < 0.12)
+
+#### Variables used
+- Demographics: Age, Gender, Race/Hispanic origin, Marital status, Education, Ratio of family income to poverty
+- Health behaviors: Physical activity, Smoking status (≥100 cigarettes in life), Alcohol consumption (≥12 drinks/year)
+- Medical conditions: Hypertension, Diabetes, Daily low-dose aspirin use
+- Cognitive measures:
+  - Animal Fluency (AF): verbal fluency test
+  - Digit Symbol Substitution Test (DSST): processing speed and working memory
+  - Consortium to Establish a Registry for Alzheimer's Disease Word Learning (CERAD-WL): immediate learning
+  - CERAD Delayed Recall (CERAD-DR): delayed memory
+
+### Research Focus
+The study aimed to:
+1. Investigate the relationship between frailty index and cognitive dysfunction in older adults
+2. Evaluate the influence of covariates on this relationship through subgroup analysis and interaction
+3. Explore potential non-linear relationships between frailty index and cognitive function
+4. Determine whether different cognitive domains are affected differently by frailty status
+
+### Methodologies
+
+#### Data Preprocessing
+- Exclusion of participants under age 60
+- Removal of cases with missing data on key covariates
+- Exclusion of participants lacking frailty index information
+- Exclusion of those who failed to complete all four cognitive tests
+- Application of sampling weights using the formula: wt = 1/2 * WTMEC2YR to account for complex survey design
+
+#### Statistical Analysis
+- Weighted means with standard deviation for continuous variables
+- Unweighted counts with weighted percentages for categorical variables
+- Chi-square tests for categorical variables and T-tests for continuous variables
+- Weighted logistic regression analysis with three models:
+  - Crude model: no adjustments
+  - Model 1: adjusted for age, gender, and race
+  - Model 2: fully adjusted for all covariates
+- Frailty index categorized into tertiles for sensitivity analysis
+- Subgroup analysis and interaction testing across demographic and health characteristics
+- Restricted cubic spline regression model to explore non-linear relationships
+- Two-sided statistical testing with significance at p < 0.05
+- All analyses performed using R (version 4.2.3)
+
+#### Machine Learning Approaches
+- Not applied to this study
+
+### Results and Findings
+
+#### Key Outcomes
+1. **Frailty-Cognitive Function Association**:
+   - Significant association between frailty index and all cognitive test scores
+   - Odds ratios for cognitive dysfunction with increasing frailty index
+   - Highest tertile of frailty index showed significantly increased risk of cognitive dysfunction compared to lowest tertile.
+
+2. **Non-linear Relationship**:
+   - Significant non-linear association between frailty index and Animal Fluency (p for non-linearity < 0.001)
+   - Risk of cognitive dysfunction began to increase when frailty index exceeded 0.19
+
+3. **Interaction Effects**:
+   - For DSST, significant interactions were found with race, marital status, education level, income-to-poverty ratio, hypertension, and diabetes
+   - No significant interactions were observed for Animal Fluency test, suggesting a more universal association
+
+#### Visualizations
+- **Figure 1**: Flowchart of patient exclusion showing the selection process from initial 19,931 participants to final 2,574 study population
+- **Figure 2**: Forest plot of subgroup analysis illustrating the relationship between frailty index and cognitive function stratified by demographic and health characteristics
+- **Figure 3**: Restricted cubic spline plot demonstrating the non-linear relationship between frailty index and risk of cognitive dysfunction, with a marked threshold effect around 0.19
+
+
 ## Paper Title
 
 ### Dataset Information
@@ -546,12 +627,15 @@ Detailed description of research questions and hypotheses.
 [4] Zhe-­Yu Yang, Wei-­ Liang Chen (2021) Prognostic significance of subjective oral dysfunction on the all-­cause mortality. Wiley, J Oral Rehabilitation. 10.1111/joor.13281
 ```
 ```
-[4] Teng Li, Xueke Li, Haoran XU, Yanyan Wang (2024) Machine learning approaches for predicting frailty base on multimorbidities in US adults using NHANES data (1999–2018). Computer Methods and Programs in Biomedicine. https://doi.org/10.1016/j.cmpbup.2024.100164
+[5] Teng Li, Xueke Li, Haoran XU, Yanyan Wang (2024) Machine learning approaches for predicting frailty base on multimorbidities in US adults using NHANES data (1999–2018). Computer Methods and Programs in Biomedicine. https://doi.org/10.1016/j.cmpbup.2024.100164
+```
+```
+[6] Jianlong Zhou, Yadi Li, Lv Zhu and Rensong Yue (2024) Association between frailty index and cognitive dysfunction in older adults: insights from the 2011–2014 NHANES data. Frontiers in Aging Neuroscience. 10.3389/fnagi.2024.1458542
 ```
 
 --------------------------------------
 
 ## Notes
-- Last updated: [26/02/2025]
+- Last updated: [28/02/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [fifth paper added]
+- Project Status: [sixth paper added]
