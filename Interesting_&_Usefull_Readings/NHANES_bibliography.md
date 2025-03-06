@@ -570,6 +570,91 @@ The study aimed to:
 - **Figure 3**: Restricted cubic spline plot demonstrating the non-linear relationship between frailty index and risk of cognitive dysfunction, with a marked threshold effect around 0.19
 
 
+# Association between frailty and cognitive impairment with mortality in older adults: insights from the 2011–2014 NHANES data
+
+## Dataset Information
+- NHANES data from 2011-2014 (2 survey cycles)
+- Total sample of 2,442 adults aged 60 years and older who completed cognitive examinations
+- Median follow-up period of 6.5 years 
+
+## Variables of Interest
+
+### Frailty Outcome
+- Frailty index based on 49 health deficiencies across physical, functional, psychological, and social health variables
+- Calculation formula: frailty index = total number of deficits present/total number of deficits measured
+- Classification threshold: Frailty defined as frailty index ≥ 0.21
+
+### Variables used
+- Demographics: Age, Sex, Race/ethnicity, Marital status, Education level, Poverty-to-income ratio
+- Health behaviors: Physical activity (based on work or recreational activity), Smoking status, Alcohol consumption
+- Medical conditions: Diabetes mellitus, Hypertension, Atherosclerotic cardiovascular disease (ASCVD)
+- Laboratory measurements: Albumin, uric acid, total cholesterol (TC), serum creatinine
+- Cognitive measures:
+  - Digit Symbol Substitution Test (DSST)
+  - Animal Fluency (AF) test
+  - Consortium to Establish a Registry for Alzheimer's Disease Word Learning (CERAD-WL) subtest
+  - Psychometric mild cognitive impairment (pMCI) defined as composite cognitive score below one standard deviation from the mean
+
+## Research Focus
+The study aimed to:
+1. Investigate the prevalence of frailty and cognitive impairment in older adults
+2. Examine the separate and combined associations of frailty and pMCI with all-cause mortality
+3. Assess the specific impact of these conditions on cardiovascular disease (CVD) mortality
+4. Determine whether age and sex modify the relationship between frailty, cognitive impairment, and mortality
+
+## Methodologies
+
+### Data Preprocessing
+- Exclusion of participants under age 60
+- Removal of cases with missing independent variables and relevant covariates
+- Exclusion of participants who were lost to follow-up
+- Application of sampling weights using the formula: weight = 1/2 × WTMEC2YR to ensure national representativeness
+
+### Statistical Analysis
+- Weighted means with standard deviation for continuous variables
+- Unweighted counts with weighted percentages for categorical variables
+- Taylor series (linearization) method for standard error estimation
+- Weighted Cox proportional hazards regression models with three models:
+  - Crude model: unadjusted
+  - Model I: adjusted for age, sex, ethnicity, and BMI
+  - Model II: fully adjusted for all covariates including marital status, education, PIR, smoking, alcohol drinking, albumin, uric acid, TC, diabetes, hypertension, and ASCVD
+- Kaplan-Meier estimates for all-cause and CVD mortality rates across frailty and pMCI strata with log-rank test
+- Sensitivity analyses for excluded older adults
+- Age (<70 and ≥70) and sex (male and female) stratified mortality analysis
+- Two-sided statistical testing with significance at p < 0.05
+- All analyses performed using R (version 4.2.1)
+
+### Machine Learning Approaches
+- Not applied to this study
+
+## Results and Findings
+
+### Key Outcomes
+1. **Prevalence of Conditions**:
+   - 31.37% of participants were frail
+   - 17.2% had pMCI
+   - 8.64% exhibited both conditions
+
+2. **Mortality Rates**:
+   - Frail individuals with pMCI had the highest all-cause mortality (75.23 per 1,000 person-years) and CVD mortality (32.97 per 1,000 person-years)
+   - Significantly higher compared to those who were non-frail without pMCI, non-frail with pMCI, or frail without pMCI
+
+3. **Risk Associations**:
+   - Frailty alone: HR for all-cause mortality = 2.25 (95% CI: 1.65-3.05); HR for CVD mortality = 2.44 (95% CI: 1.69-3.53)
+   - pMCI alone: HR for all-cause mortality = 1.59 (95% CI: 1.26-2.01); HR for CVD mortality = 1.92 (95% CI: 1.21-3.04)
+   - Both conditions: HR for all-cause mortality = 3.06 (95% CI: 2.05-4.56); HR for CVD mortality = 3.80 (95% CI: 2.07-6.96)
+
+4. **Age and Sex Effects**:
+   - Among adults aged ≥70, the frail with pMCI group had the highest proportion of all-cause mortality
+   - For males: 66.14% (weighted) all-cause mortality and 25.56% (weighted) CVD mortality
+   - For females: 46.84% (weighted) all-cause mortality and 20.44% (weighted) CVD mortality
+
+### Visualizations
+- **Figure 1**: Bar graph showing the weighted percentages of all-cause and CVD mortality by different frailty and cognitive performance status
+- **Figure 2**: Forest plot illustrating the association of frailty/cognition groups with all-cause and CVD mortality across three statistical models
+- **Figure 3**: Kaplan-Meier survival curves for all-cause and CVD mortality stratified by different frailty and cognitive performance status
+
+
 ## Paper Title
 
 ### Dataset Information
@@ -632,10 +717,13 @@ Detailed description of research questions and hypotheses.
 ```
 [6] Jianlong Zhou, Yadi Li, Lv Zhu and Rensong Yue (2024) Association between frailty index and cognitive dysfunction in older adults: insights from the 2011–2014 NHANES data. Frontiers in Aging Neuroscience. 10.3389/fnagi.2024.1458542
 ```
+```
+[7] An‑Bang Liu, Yan‑Xia Lin, Guan‑Ying Li et al. (2025) Association between frailty and cognitive impairment with mortality in older adults: insights from the 2011–2014 NHANES data. BMC Geriatrics. https://doi.org/10.1186/s12877-025-05752-9
+```
 
 --------------------------------------
 
 ## Notes
-- Last updated: [28/02/2025]
+- Last updated: [6/03/2025]
 - Contact: [silvano.quarto@gmail.com]
-- Project Status: [sixth paper added]
+- Project Status: [seventh paper added]
