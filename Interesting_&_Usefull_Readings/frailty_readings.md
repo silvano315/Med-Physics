@@ -6,6 +6,8 @@ This would be a readme file about some interesting and useful readings about som
 
 1. "Blood biomarkers of Alzheimer’s disease in the community: Variation by chronic diseases and inflammatory status" [here](https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.13860)
 2. "Explainable machine learning model for pre‐frailty risk assessment in community‐dwelling older adults" [here](https://onlinelibrary.wiley.com/doi/full/10.1002/hcs2.120)
+3. "Defining the Role of Frailty in the Transition from Mild Cognitive Impairment to Dementia and in Dementia Progression" [here](https://karger.com/dem/article-abstract/53/2/57/896186/Defining-the-Role-of-Frailty-in-the-Transition?redirectedFrom=fulltext)
+4. "Older patients affected by COVID-19: investigating the existence of biological phenotypes" [here](https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-024-05473-5)
 
 ## Explainable machine learning model for pre‐frailty risk assessment in community‐dwelling older adults
 
@@ -256,3 +258,67 @@ The paper's Figure 1 effectively visualizes two key aspects of the relationship 
    - Shows consistently higher frailty scores in progressors across all CDR groups
 
 This visualization supports the study's conclusion that frailty is both a marker of current disease state and a predictor of future progression.
+
+## Older patients affected by COVID-19: investigating the existence of biological phenotypes
+
+This paper investigates the existence of distinct biological phenotypes in older patients hospitalized for COVID-19 using a panel of aging biomarkers. The study analyzes data from the FRACOVID Project, an observational multicenter study conducted in Northern Italy.
+
+(a) Study Design and Population:
+
+- Data collected from consecutive patients with COVID-19 hospitalized between February and May 2020
+- Study conducted in acute Geriatric and Infectious disease wards of San Gerardo Hospital (Monza) and Civili Hospital (Brescia)
+- Inclusion criteria: Age over 60 years, positive PCR test for SARS-CoV-2, Clinical Frailty Scale score ≤7
+
+(b) Data Collection:
+
+- Comprehensive assessment using structured case report form and Research Electronic Data Capture platform
+- Data collected through in-person interviews, medical examinations, and review of medical records
+- Information gathered on demographics, clinical characteristics, functional status, chronic diseases, and COVID-19 severity
+- Frailty status assessed using the Clinical Frailty Scale (CFS)
+- Blood samples collected at admission for biomarker analysis
+
+(c) Biomarker Panel:
+
+- The study analyzed 7 key aging biomarkers:
+  1. Cystatin C (reflects renal function and mortality risk)
+  2. Growth differentiation factor 15 (GDF-15) (marker of mitochondrial dysfunction)
+  3. Interleukin-1 beta (IL-1β) (inflammatory marker of aging)
+  4. Interleukin-6 (IL-6) (pro-inflammatory cytokine associated with frailty)
+  5. N-terminal pro-B-type natriuretic peptide (NT-proBNP) (cardiac health marker)
+  6. Plasminogen activator inhibitor-1 (PAI-1) (associated with cellular senescence)
+  7. Tumor necrosis factor alpha (TNF-α) (pro-inflammatory marker of inflammaging)
+
+(d) Statistical Analysis:
+
+- The researchers employed an unsupervised hierarchical clustering approach to identify biological phenotypes
+- This methodology was chosen because it allows for the identification of natural groupings in the data without predefined classifications
+- Data preparation involved several critical steps:
+  1. Out-of-range biomarker values were removed to ensure data quality
+  2. Log-transformation was applied to normalize the distribution of biomarker values
+  3. Values were centered and scaled using mean and standard deviation to standardize different measurement scales
+- Ward's method with squared Euclidean distance was selected for clustering because:
+  1. Ward's method minimizes the variance within clusters, creating more compact groups
+  2. This approach is particularly effective for identifying clusters with similar biomarker profiles
+- The optimal number of clusters was determined through visual inspection of the dendrogram (hierarchical tree diagram)
+- Between-cluster comparisons used appropriate statistical tests:
+  1. One-way ANOVA for continuous variables
+  2. Chi-square tests for categorical variables with adequate cell counts
+  3. Fisher's exact tests for categorical variables with small expected frequencies
+- The Kruskal-Wallis test was specifically chosen to compare biomarker concentrations across phenotypes because:
+  1. It's a non-parametric test that doesn't assume normal distribution
+  2. It's robust for comparing medians across multiple groups
+  3. It's appropriate for biomarker data that may remain skewed even after transformation
+- All analyses were conducted using R 4.3.0
+
+(e) Identified Biological Phenotypes:
+
+- The analysis revealed three distinct biological phenotypes:
+  1. "Inflammatory" phenotype (40.7% of participants):
+  2. "Organ dysfunction" phenotype (37.1% of participants):
+  3. "Unspecific" phenotype (22.0% of participants):
+
+(f) Clinical Implications:
+
+- The identified biological phenotypes correlate with different clinical and functional characteristics
+- The "organ dysfunction" phenotype demonstrated the highest prevalence of frailty, disability, and chronic conditions
+- The "inflammatory" phenotype showed the most pronounced systemic inflammatory response
