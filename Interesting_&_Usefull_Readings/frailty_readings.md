@@ -8,6 +8,7 @@ This would be a readme file about some interesting and useful readings about som
 2. "Explainable machine learning model for pre‐frailty risk assessment in community‐dwelling older adults" [here](https://onlinelibrary.wiley.com/doi/full/10.1002/hcs2.120)
 3. "Defining the Role of Frailty in the Transition from Mild Cognitive Impairment to Dementia and in Dementia Progression" [here](https://karger.com/dem/article-abstract/53/2/57/896186/Defining-the-Role-of-Frailty-in-the-Transition?redirectedFrom=fulltext)
 4. "Older patients affected by COVID-19: investigating the existence of biological phenotypes" [here](https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-024-05473-5)
+5. "Frailty and risk of cardiovascular disease and mortality" [here](10.1371/journal.pone.0272527)
 
 ## Explainable machine learning model for pre‐frailty risk assessment in community‐dwelling older adults
 
@@ -322,3 +323,55 @@ This paper investigates the existence of distinct biological phenotypes in older
 - The identified biological phenotypes correlate with different clinical and functional characteristics
 - The "organ dysfunction" phenotype demonstrated the highest prevalence of frailty, disability, and chronic conditions
 - The "inflammatory" phenotype showed the most pronounced systemic inflammatory response
+
+
+## Frailty and risk of cardiovascular disease and mortality
+
+This study investigates the association between frailty and the risk of developing cardiovascular disease (CVD) and mortality using data from a prospective cohort study conducted in Singapore.
+
+(a) Study Design and Population:
+* Data from the Singapore Longitudinal Ageing Study (SLAS)
+* Participants recruited in two phases: SLAS-1 (2003-2004) and SLAS-2 (2009-2013)
+* Final sample included 5,015 community-dwelling participants aged ≥55 years
+* Follow-up period of up to 10 years, ending in December 2017
+
+(b) Data Collection:
+* Frailty status assessed according to **modified Fried criteria** with five components:
+  1. Shrinking/weight loss (BMI <18.5 kg/m² and/or unintentional weight loss ≥4.5 kg)
+  2. Weakness (measured by knee extension strength or rising from chair test)
+  3. Slowness (gait speed <0.8m/s or POMA score <9)
+  4. Exhaustion (response of "not at all" to energy question from SF-12)
+  5. Low activity (no participation in any physical activity)
+* CVD/mortality events as outcomes.
+* Covariate variables included sociodemographic data, lifestyle behaviors, cardiometabolic risk factors, medication therapies, depression (GDS), cognitive function (MMSE), and blood biomarkers (hemoglobin, albumin, creatinine, white blood cell count)
+
+(c) Frailty Measurement:
+* Frailty status categorized as:
+  1. Robust (0 points)
+  2. Pre-frailty (1-2 points)
+  3. Frailty (3-5 points)
+* Prevalence in the sample: Robust 50.1%, Pre-frailty 46.2%, Frailty 3.7%
+
+(d) Statistical Analysis:
+* **Hierarchical Cox proportional hazard models** used to estimate hazard ratios (HR) between frailty status and incident CVD/mortality
+* **Competing-risks survival regression models** employed to estimate sub-distribution hazard ratios (SHR) between frailty status/components and specific CVD outcomes
+* Hierarchical adjustment in five progressive models:
+  1. Model 1: Adjusted for age and sex (fundamental demographic confounders)
+  2. Model 2: Added race, education, housing (socioeconomic determinants of health that may influence both frailty and CVD risk)
+  3. Model 3: Added smoking, alcohol, central obesity, raised triglycerides, reduced HDL-C, hypertension, diabetes, raised LDL-C, statin therapy, antiplatelet therapy, anticoagulant therapy (traditional cardiovascular risk factors and treatments)
+  4. Model 4: Added depression (GDS) and cognitive impairment (MMSE) (psychological comorbidities known to be associated with both frailty and CVD)
+  5. Model 5: Added blood biomarkers (albumin, hemoglobin, creatinine, white blood cell count) (biological markers of inflammation and organ function)
+* This hierarchical approach was specifically chosen to:
+  1. Identify potential mediating pathways between frailty and CVD outcomes
+  2. Evaluate how the association changes after adjustment for specific domains of covariates
+* Time-to-event defined as the length of time between baseline and first recorded CVD event
+* Sensitivity analysis excluding CVD cases within 1 year after baseline to address potential reverse causality
+* Statistical significance set at p<0.05 (two-sided)
+* All analyses conducted using Stata 13.0
+
+(e) Key Findings:
+* Pre-frailty and frailty were significantly associated with:
+  1. Overall CVD: pre-frailty HR=1.26 (95%CI: 1.02-1.56), frailty HR=1.54 (95%CI: 1.00-2.35) after adjustment for cardiometabolic and vascular risk factors (Model 3)
+  2. Fatal CVD: pre-frailty HR=1.70 (95%CI: 1.05-2.77), frailty HR=2.48 (95%CI: 1.14-5.37) in the fully adjusted model (Model 5)
+  3. All-cause mortality: pre-frailty HR=1.40 (95%CI: 1.17-1.67), frailty HR=2.03 (95%CI: 1.48-2.80) in the fully adjusted model (Model 5)
+* The association with overall CVD became non-significant after adjustment for GDS depression and MMSE cognitive impairment (Model 4)
